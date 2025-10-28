@@ -1,11 +1,11 @@
 - name: variables playbook
   hosts: local
   connection: local
-  vars:
+  vars: # PLAY level variables
     greeting_message: "Hello World from Variables Playbook!"
   tasks:
     - name: print greeting message from task vars
-      vars:
+      vars: # Task level variables
         greeting_message: "Hello from Task Vars!"
       ansible.builtin.debug:
         msg: "{{ greeting_message }}"
