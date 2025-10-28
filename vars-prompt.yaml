@@ -4,10 +4,10 @@
   vars_prompt:
     - name: "greeting_message"
       prompt: "Enter your greeting message"
-      private: no
+      private: yes # hide input when typed
     - name: "user"
       prompt: "Enter your user name"
-      private: no
+      private: no # make it visible when typed
   tasks:
     - name: print greeting message from vars file
       ansible.builtin.debug:
