@@ -1,0 +1,14 @@
+- name: variables playbook
+  hosts: local
+  connection: local
+  vars:
+    greeting_message: "Hello World from Variables Playbook!"
+  tasks:
+    - name: print greeting message from task vars
+      vars:
+        greeting_message: "Hello from Task Vars!"
+      ansible.builtin.debug:
+        msg: "{{ greeting_message }}"
+    - name: print greeting message
+      ansible.builtin.debug:
+        msg: "{{ greeting_message }}"
