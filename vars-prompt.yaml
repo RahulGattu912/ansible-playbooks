@@ -1,0 +1,17 @@
+- name: variables from files
+  hosts: local
+  connection: local
+  vars_prompt:
+    - name: "greeting_message"
+      prompt: "Enter your greeting message"
+      private: no
+    - name: "user"
+      prompt: "Enter your user name"
+      private: no
+  tasks:
+    - name: print greeting message from vars file
+      ansible.builtin.debug:
+        msg: "{{ greeting_message }}"
+    - name: print user from vars file
+      ansible.builtin.debug:
+        msg: "User is {{ user }}"
