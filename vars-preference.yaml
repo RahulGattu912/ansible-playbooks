@@ -1,0 +1,20 @@
+- name: variables
+  hosts: local
+  connection: local
+  vars: # PLAY level variables
+    greeting_message: "Hello World from Variables Playbook!"
+  vars_files:
+    - vars.yaml
+  vars_prompt:
+    - name: "greeting_message"
+      prompt: "Enter your greeting message"
+      private: no
+  tasks:
+    - name: print greeting message from task vars
+      vars: # Task level variables
+        greeting_message: "Hello from Task Vars!"
+      ansible.builtin.debug:
+        msg: "{{ greeting_message }}"
+    - name: print greeting message
+      ansible.builtin.debug:
+        msg: "{{ greeting_message }}"
