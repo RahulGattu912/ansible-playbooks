@@ -1,0 +1,7 @@
+- name: variables playbook
+  hosts: local
+  connection: local
+  tasks:
+    - name: print greeting message
+      ansible.builtin.debug:
+        msg: "{{ greeting_message }}"
