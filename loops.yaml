@@ -1,0 +1,13 @@
+- name: loops
+  hosts: local
+  connection: local
+  vars:
+    my_list:
+      - Apple
+      - Banana
+      - Cherry
+  tasks:
+    - name: iterate over a list
+      ansible.builtin.debug:
+        msg: "Fruit: {{ item }}"
+      loop: "{{ my_list }}"
