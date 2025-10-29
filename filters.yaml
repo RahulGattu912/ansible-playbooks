@@ -7,7 +7,7 @@
   tasks:
     - name: demonstrate string filters
       ansible.builtin.debug:
-        msg: "Hello {{ person | default('User') }}!"
+        msg: "Hello {{ person | default('User') }}! " # Using default filter
 
     - name: demonstrate string filters
       ansible.builtin.debug:
@@ -16,11 +16,3 @@
           - "Stripped Text: '{{ sample_text | trim() }}'"
           - "Uppercase Text: '{{ sample_text | upper() }}'"
           - "Lowercase Text: '{{ sample_text | lower() }}'"
-
-    - name: demonstrate number filters
-      ansible.builtin.debug:
-        msg:
-          - "Original Number: '{{ sample_number }}'"
-          - "Rounded Number: '{{ sample_number | round(2) }}'"
-          - "Ceiling Number: '{{ sample_number | ceil() }}'"
-          - "Floor Number: '{{ sample_number | floor() }}'"
