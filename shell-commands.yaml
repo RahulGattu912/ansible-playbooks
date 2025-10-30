@@ -7,7 +7,7 @@
 
     - name: Using the command module
       ansible.builtin.command: ls -ltr
-      register: command_output
+      register: command_output # Registering the output of the command
 
     - name: Display command output
       ansible.builtin.debug:
