@@ -1,8 +1,14 @@
 - name: nginx installation
   hosts: all
   become: yes
+  serial: 5 # Limit to 5 hosts at a time
   tasks:
     - name: Install Nginx
       ansible.builtin.package:
         name: nginx
         state: present
+
+    - name: run nginx service
+      ansible.builtin.service:
+        name: nginx
+        state: started
