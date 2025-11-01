@@ -1,0 +1,10 @@
+plugin: amazon.aws.aws_ec2 # Ansible Dynamic Inventory Plugin for AWS EC2
+regions:
+  - us-east-1
+filters: # Filters to select specific instances
+  tag:Name: nginx
+  instance-state-name: running
+hostnames: # Use private IP address as the hostname
+  - private-ip-address
+compose: # Map private_ip_address to
+  ansible_host: private_ip_address
